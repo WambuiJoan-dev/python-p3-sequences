@@ -4,12 +4,17 @@
 
 def print_fibonacci(length):
 
-	fib_seq = []
-	if length > 0:
-		fib_seq.append(0)
-	if length >= 2:
-		fib_seq.append(1)
-		for i in range(2, length):
-			fib_seq.append(fib_seq[-1] + fib_seq[-2])
+    if length == 0:
+        print([])
+        return
+    elif length == 1:
+        print([0])
+        return
+    
+    fibonacci_seq = [0, 1]
 
-	print(fib_seq)
+    while len(fibonacci_seq) < length:
+        next_number = fibonacci_seq[-1] + fibonacci_seq[-2]
+        fibonacci_seq.append(next_number)
+
+    print(fibonacci_seq[:length])
